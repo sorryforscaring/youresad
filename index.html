@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ваш сайт</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        video {
+            position: fixed;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #myButton {
+            width: 200px; /* увеличить ширину кнопки */
+            height: 100px; /* увеличить высоту кнопки */
+            position: absolute;
+            left: 50%; /* сместить кнопку на 50% от левого края */
+            bottom: 50%; /* сместить кнопку на 50% от нижнего края */
+            transform: translate(-50%, 50%); /* сдвинуть кнопку на половину её размера, чтобы выровнять по центру */
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <video id="myVideo" hidden>
+        <source src="video.mp4" type="video/mp4">
+        <source src="video.ogg" type="video/ogg">
+        Ваш браузер не поддерживает элемент video.
+    </video>
+    <button id="myButton">Прикол</button>
+    <script>
+        document.getElementById("myButton").addEventListener("click", function() {
+            var video = document.getElementById("myVideo");
+            video.muted = false; // включить звук
+            video.hidden = false; // показать видео
+            video.play(); // начать воспроизведение
+            this.style.display = "none"; // скрыть кнопку
+        });
+    </script>
+</body>
+</html>
